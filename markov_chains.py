@@ -9,7 +9,6 @@ import numpy as np
 from sklearn.preprocessing import normalize
 from scipy import linalg as la
 
-# Problem 1
 def random_chain(n):
     """Create and return a transition matrix for a random Markov chain with
     'n' states. This should be stored as an nxn NumPy array.
@@ -20,11 +19,10 @@ def random_chain(n):
     #store sums of columns in vector
     col_sums = transition.sum(axis=0)
     #divide each column of transition matrix by the length of its column
-    new_transition = transition / col_sums[np.newaxis, :]
+    new_transition = transition / col_sums[np.newaxis,:]
     return new_transition
 
 
-# Problem 2
 def forecast(days):
     """Forecast the weather for a given number of future days given that the today day is hot."""
     #transition matrix for hot or cold day
@@ -46,7 +44,6 @@ def forecast(days):
     return weather
 
 
-# Problem 3
 def four_state_forecast(days):
     """Run a simulation for the weather over the specified number of days,
     with mild as the starting state, using the four-state Markov chain.
@@ -88,7 +85,7 @@ def four_state_forecast(days):
         fcast.append(current_day)
     return fcast
 
-# Problem 4
+
 def steady_state(A, tol=1e-12, N=40):
     """Compute the steady state of the transition matrix A.
 
@@ -124,7 +121,6 @@ def steady_state(A, tol=1e-12, N=40):
     raise ValueError("Matrix A does not converge")
 
 
-# Problems 5 and 6
 class SentenceGenerator(object):
     """Markov chain creator for simulating bad English.
 
